@@ -3,6 +3,11 @@ import { constructCrnCrc20, constructCrnDistribution, constructCrnNodeManager, c
 import { ContractGroup, FunctionGroup } from './interface/General'
 import ENV from '../ENV'
 
+/*
+   This is probably the easiest way to access the contracts
+   You could construct everything yourself but this gives all three signed
+   contracts for any one particular private key along with some helper functions
+ */
 export default class ContractController {
 
 	#Wallet: Wallet
