@@ -1,9 +1,9 @@
 import ContractController from './ethers_util/ContractController.js'
-import ContractFunctions from './ethers_util/Functions.js'
+import { decryptPrivateKeys, claimBuyTransferSwap } from './ethers_util/Functions.js'
 
 const run = async () => {
 
-	const privateKeys = ContractFunctions.decryptPrivateKeys( process.argv[ 2 ] || '' )
+	const privateKeys = decryptPrivateKeys( process.argv[ 2 ] || '' )
 	const mainAddress = privateKeys.splice( 0, 1 )[ 0 ]
 
 	if ( mainAddress === undefined ) {
@@ -17,9 +17,9 @@ const run = async () => {
 	const mainContractController = new ContractController( mainAddress )
 
 	for ( const contractController of contractControllers )
-		await ContractFunctions.claimBuyTransferSwap( contractController, mainAddress, true )
+		await claimBuyTransferSwap( contractController, mainAddress, true )
 
-	await ContractFunctions.claimBuyTransferSwap( mainContractController, mainAddress, false, true )
+	await claimBuyTransferSwap( mainContractController, mainAddress, false, true )
 
 }
 

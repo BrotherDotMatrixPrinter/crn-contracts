@@ -195,7 +195,7 @@ export const claimAndBuy = async ( privateKey: string ) => {
 
 }
 
-const claimBuyTransferSwap = async (
+export const claimBuyTransferSwap = async (
 
 	contractController: ContractController,
 	to: string,
