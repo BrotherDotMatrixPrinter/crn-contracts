@@ -1,0 +1,5 @@
+export default {
+	CrnCrc20: '0x8174BaC1453c3AC7CaED909c20ceaDeb5E1CDA00',
+	CrnDistribution: '0x6aD4Ff63fD7CF6672eE33Cdad8e3EE14Bad52B4E',
+	CrnNodeManager: '0x7f0CCde008102a2Db79c3372A10E21c07451dB38'
+}

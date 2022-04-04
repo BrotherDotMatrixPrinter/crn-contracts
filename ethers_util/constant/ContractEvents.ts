@@ -1,0 +1,23 @@
+export default {
+	CrnCrc20: [
+		'Approval',
+		'ERC20PaymentReleased',
+		'LiquidityWalletUpdated',
+		'OwnershipTransferred',
+		'PayeeAdded',
+		'PaymentReceived',
+		'PaymentReleased',
+		'SetAutomatedMarketMakerPair',
+		'SwapAndLiquify',
+		'Transfer',
+		'UpdateUniswapV2Router'
+	],
+	CrnDistribution: [
+		'BlocksPerDayChanged',
+		'FeeChanged',
+		'FundsDeposited',
+		'MultiplierChanged',
+		'OwnershipTransferred',
+		'UserClaimedRewards'
+	]
+}
