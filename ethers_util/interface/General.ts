@@ -21,6 +21,7 @@ export interface FunctionGroup {
 
 }
 
+// This isn't used, it is for event listeners
 export interface EventData {
 
 	blockNumber: any
