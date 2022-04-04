@@ -17,7 +17,7 @@ export default interface CrnCrc20Functions {
 	changeNodePrice( amount: BigNumber ): Promise< void[] >
 	changeRewardPerNode( amount: BigNumber ): Promise< void[] >
 	changeSwapLiquify( value: boolean ): Promise< void[] >
-	createNodeWithTokens( name: string ): Promise< void[] >
+	createNodeWithTokens( name: string ): Promise< any[] >
 	deadWallet(): Promise< string[] >
 	decimals(): Promise< BigNumber[] > // Revisit this, uint8
 	decreaseAllowance( address: string, amount: BigNumber ): Promise< boolean[] >
