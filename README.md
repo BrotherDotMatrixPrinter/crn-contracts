@@ -12,9 +12,9 @@ The functions exported from 'ethers_util/Constructor.ts' combine these into a wo
 
 ---
 
-To use, create a 'PrivateKeys.ts' file and export an array with all of the keys you want.
+To use, create a 'PrivateKeys.json' file and export an array with all of the keys you want.
 
-Change env variables in 'ENV.ts'.
+Change env variables in 'ENV.json'.
 
 ---
 
