@@ -7,8 +7,7 @@
     "ethers_util/ContractController.ts",
     "ethers_util/Functions.ts",
     "ethers_util/constant/ContractAddresses.ts",
-    "ethers_util/constant/ContractEvents.ts",
-    "ethers_util/constant/General.ts",
+    "ethers_util/constant/ContractEvents.ts"
     "ethers_util/constant/abi/CrnCrc20.ts",
     "ethers_util/constant/abi/CrnDistribution.ts",
     "ethers_util/constant/abi/CrnNodeManager.ts",
