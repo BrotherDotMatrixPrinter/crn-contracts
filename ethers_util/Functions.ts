@@ -3,7 +3,7 @@ import ENV from '../ENV'
 
 export const claimAndBuy = async ( privateKey: string ) => {
 
-	const contractController = new ContractController( privateKey as string )
+	const contractController = new ContractController( privateKey )
 	const balance = await contractController.getBalance()
 	const numberOfNodes = await contractController.getNumberOfNodes()
 
