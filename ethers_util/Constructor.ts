@@ -14,6 +14,7 @@ import CrnCrc20Bytecode from './constant/bytecode/CrnCrc20'
 import CrnDistributionBytecode from './constant/bytecode/CrnDistribution'
 import CrnNodeManagerBytecode from './constant/bytecode/CrnNodeManager'
 
+// The Wallet is used as a signer for the contracts
 export const constructWallet = (
 
 	privateKey: string
@@ -25,9 +26,11 @@ export const constructWallet = (
 
 )
 
+// Ignore this
 export const constructCrnCrc20Interface = () =>
 	new Interface( CrnCrc20Abi )
 
+// Ignore this
 export const constructCrnCrc20Factory = (
 
 	wallet: Wallet
@@ -52,10 +55,11 @@ export const constructCrnCrc20 = (
 
 )
 
+// Ignore this
 export const constructCrnDistributionInterface = () =>
 	new Interface( CrnDistributionAbi )
 
-
+// Ignore this
 export const constructCrnDistributionFactory = (
 
 	wallet: Wallet
@@ -80,9 +84,11 @@ export const constructCrnDistribution = (
 
 )
 
+// Ignore this
 export const constructCrnNodeManagerInterface = () =>
 	new Interface( CrnNodeManagerAbi )
 
+// Ignore this
 export const constructCrnNodeManagerFactory = (
 
 	wallet: Wallet
@@ -107,6 +113,7 @@ export const constructCrnNodeManager = (
 
 )
 
+// This just wraps the functions in an interface for intellitype
 export const constructFunctions = < Type >(
 
 	contract: Contract
