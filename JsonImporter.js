@@ -1,11 +1,11 @@
-import ENV from './ENV.json'
-import PrivateKeys from './PrivateKeys.json'
-import ContractAddresses from './ethers_util/constant/ContractAddresses.json'
-import ContractEvents from './ethers_util/constant/ContractEvents.json'
-import CrnCrc20 from './ethers_util/constant/abi/CrnCrc20.json'
-import CrnDistribution from './ethers_util/constant/abi/CrnDistribution.json'
-import CrnNodeManager from './ethers_util/constant/abi/CrnNodeManager.json'
-import CronaswapRouter from './ethers_util/constant/abi/CronaswapRouter.json'
+import ENV from './ENV.json' assert { type: 'json' }
+import PrivateKeys from './PrivateKeys.json' assert { type: 'json' }
+import ContractAddresses from './ethers_util/constant/ContractAddresses.json' assert { type: 'json' }
+import ContractEvents from './ethers_util/constant/ContractEvents.json' assert { type: 'json' }
+import CrnCrc20 from './ethers_util/constant/abi/CrnCrc20.json' assert { type: 'json' }
+import CrnDistribution from './ethers_util/constant/abi/CrnDistribution.json' assert { type: 'json' }
+import CrnNodeManager from './ethers_util/constant/abi/CrnNodeManager.json' assert { type: 'json' }
+import CronaswapRouter from './ethers_util/constant/abi/CronaswapRouter.json' assert { type: 'json' }
 
 export const Env = ENV
 export const Private_Keys = PrivateKeys

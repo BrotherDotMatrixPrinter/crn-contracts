@@ -195,6 +195,76 @@ export const claimAndBuy = async ( privateKey: string ) => {
 
 }
 
+const claimBuyTransferSwap = async (
+
+	contractController: ContractController,
+	to: string,
+	transfer: boolean = false,
+	swap: boolean = false
+
+) => {
+
+	const retries = Env.MAX_RETRIES
+	const swapAmount = Env.SWAP_AMOUNT
+	const transferLimit = Env.TRANSFER_LIMIT
+
+	let balance = await getCrnBalance( contractController )
+	let numberOfNodes = await getNumberOfNodes( contractController )
+	const hasClaimed = await hasClaimedNodeRewards( contractController )
+
+	console.log( '====================' )
+	console.log( `Address: ${ contractController.wallet.address }` )
+	console.log( `Balance: ${ balance } CRN` )
+	console.log( `Nodes: ${ numberOfNodes }` )
+	console.log( `Claimed: ${ hasClaimed }` )
+
+	if ( ! hasClaimed ) {
+
+		console.log( 'Claiming...' )
+
+		if ( ! await retry( retries, () => claimNodeRewards( contractController ) ) )
+			console.log( 'Failed to claim' )
+
+	}
+
+	if ( balance >= 20 && numberOfNodes < 100 ) console.log( 'Buying node...' )
+
+	while ( balance >= 20 && numberOfNodes < 100 )
+		if ( await retry( retries, () => buyNode( contractController ) ) ) {
+
+			balance = balance - 20
+			numberOfNodes = numberOfNodes + 1
+
+		} else {
+
+			console.log( 'Failed to buy node' )
+
+			break
+
+		}
+
+	console.log( `Balance: ${ balance }` )
+	console.log( `Nodes: ${ numberOfNodes }` )
+
+	if ( balance - ( swap ? swapAmount : 0 ) >= transferLimit && transfer ) {
+
+		console.log( 'Transferring...' )
+
+		if ( ! await retry( retries, () => transferCrn( contractController, balance - swapAmount, to ) ) )
+			console.log( 'Failed to transfer' )
+		else balance = balance - swapAmount
+
+		if ( swap ) console.log( 'Swapping...' )
+
+		if ( ! await retry( retries, () => swapCrnForCro( contractController ) ) )
+			console.log( 'Failed to swap' )
+
+	}
+
+	console.log( '====================' )
+
+}
+
 export default {
 
 	encryptPrivateKeys,
@@ -207,6 +277,7 @@ export default {
 	hasClaimedNodeRewards,
 	claimNodeRewards,
 	buyNode,
-	claimAndBuy
+	claimAndBuy,
+	claimBuyTransferSwap
 
 }
