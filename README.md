@@ -1,20 +1,41 @@
-Required information: Contract ABI and Address, Wallet Private Key
+Required information: Wallet Private Key
 
-The ABI will allow the ethers Contract to operate but without a TS interface, intellitype is unavailable.
+This allows you to easily interact with CRN's smart contracts and the Cronaswap Router.
 
-The functions exported from 'ethers_util/Constructor.ts' combine these into a working ethers Contract:
-	1. Contract ABI
-	2. Contract Address
-	3. Wallet Private Key
-	3. TS Interface
+'ethers_util/ContractController.ts' exports a class that provides:
+- Signed contracts
+- Interface wrapped functions
+- Observable properties
+- Contract function implementation
+- Auto retry for implemented functions
+- TODO: Contract event interface
 
-'ethers_util/ContractController.ts' exports a Class that provides signed contracts and wrapped functions for a private key.
+The ContractController class gives you the option to either use the built-in functions or create your own implementations and interact with other contract functions and events.
 
 ---
 
-To use, create a 'PrivateKeys.ts' file and export an array with all of the keys you want.
+To use, create a 'PrivateKeys.json' file and export an array with all of the keys you want in this format:
+```json
+[
+	[ "plainKey", false ]
+]
+```
 
-Change env variables in 'ENV.ts'.
+After encrypting the keys, the json will reformat like this:
+```json
+[
+	[ "encKey", true ]
+]
+```
+
+Change env variables in 'ENV.json'.
+
+Run:
+```
+npm i
+tsc
+node build/index.js [password]
+```
 
 ---
 
@@ -22,5 +43,3 @@ Change env variables in 'ENV.ts'.
 	- Add MarketController for price checking (via API and Contracts) - main branch
 	- Add DB for value tracking and records keeping - main branch
 	- Add documentation - main branch
-	- Add better encryption/hashing for private keys
-		- see https://stackoverflow.com/a/53573115
