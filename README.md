@@ -2,7 +2,7 @@ Required information: Wallet Private Key
 
 This allows you to easily interact with CRN's smart contracts and the Cronaswap Router.
 
-'ethers_util/ContractController.ts' exports a class that provides:
+'contract/ContractController.ts' exports a class that provides:
 - Signed contracts
 - Interface wrapped functions
 - Observable properties

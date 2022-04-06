@@ -1,6 +1,7 @@
+
 import fs from 'fs'
-import ContractController from './ethers_util/ContractController.js'
-import { encryptPrivateKeys, decryptPrivateKeys, claimBuyTransferSwap } from './ethers_util/Functions.js'
+import ContractController from './contract/ContractController.js'
+import { encryptPrivateKeys, decryptPrivateKeys } from './contract/Functions.js'
 
 fs.writeFileSync( 'PrivateKeys.json', JSON.stringify( encryptPrivateKeys( process.argv[ 2 ] || '' ) ), 'utf8' )
 
@@ -14,7 +15,6 @@ if ( mainAddress === undefined ) {
 
 }
 
-const contractControllers = privateKeys.map( privateKey => new ContractController( privateKey ) )
 const mainContractController = new ContractController( mainAddress )
 
 mainContractController.balance.addObserver( async response => {
@@ -33,8 +33,5 @@ mainContractController.numberOfNodes.addObserver( async response => {
 
 } )
 
-for ( const contractController of contractControllers )
-	await claimBuyTransferSwap( contractController, mainAddress, true, true, true )
-
-await claimBuyTransferSwap( mainContractController, mainAddress, true, true, false, true )
-
+mainContractController.getBalance()
+mainContractController.getNumberOfNodes()
