@@ -16,7 +16,9 @@
     "contract/interface/CrnCrc20Functions.ts",
     "contract/interface/CrnDistributionFunctions.ts",
     "contract/interface/CrnNodeManagerFunctions.ts",
-    "contract/interface/CronaswapRouterFunctions.ts"
+    "contract/interface/CronaswapRouterFunctions.ts",
+    "repository/Model.ts",
+    "repository/Repository.ts",
   ],
   "compilerOptions": {
     "target": "esnext",
